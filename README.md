@@ -1,14 +1,14 @@
 # UNIS :: 2024 대동제 홈페이지
 
 > UNIS 대동제 홈페이지 프론트엔드 레포지토리입니다. <br />
-> ✅ [프론트엔드 배포 서버](https://earlyus-front.vercel.app/, 'UNIS :: 2024 대동제 홈페이지')<br />
+> ✅ [프론트엔드 배포 서버](https://www.2024-unis-festival-front.vercel.app/, 'UNIS :: 2024 대동제 홈페이지')<br />
 
 <br>
 
 ## Start Project
 
 ```
-git clone
+git clone https://github.com/aoqlsdl/2024-UNIS-Festival-Front.git
 
 // install
 npm i
