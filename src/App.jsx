@@ -1,10 +1,11 @@
-import './App.css';
+import { BrowserRouter } from 'react-router-dom';
+import Routes from './pages/routes';
 
 function App() {
 	return (
-		<>
-			<div>hello world!</div>
-		</>
+		<BrowserRouter>
+			<Routes />
+		</BrowserRouter>
 	);
 }
 
