@@ -1,7 +1,7 @@
 # UNIS :: 2024 대동제 홈페이지
 
 > UNIS 대동제 홈페이지 프론트엔드 레포지토리입니다. <br />
-> ✅ [프론트엔드 배포 서버](https://www.2024-unis-festival-front.vercel.app/, 'UNIS :: 2024 대동제 홈페이지')<br />
+> ✅ [프론트엔드 배포 서버](https://2024-unis-festival-front.vercel.app/, 'UNIS :: 2024 대동제 홈페이지')<br />
 
 <br>
 
