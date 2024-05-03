@@ -6,6 +6,8 @@ import OrderPage from './OrderPage/OrderPage';
 import ReviewListPage from './ReviewListPage/ReviewListPage';
 import ReviewPage from './ReviewPage/ReviewPage';
 import OrderListPage from './OrderListPage/OrderListPage';
+import ProtectedLayout from './ProtectedLayout';
+import AuthPage from './AuthPage/AuthPage';
 
 const RoutesComponent = () => {
 	return (
@@ -23,6 +25,9 @@ const RoutesComponent = () => {
 			<Route path="/reviews" element={<NavbarLayout title="벗들의 찐후기" />}>
 				<Route index element={<ReviewListPage />} />
 				<Route path=":review" element={<ReviewPage />} /> {/* /reviews/1 */}
+			</Route>
+			<Route path="/auth" element={<ProtectedLayout />}>
+				<Route index element={<AuthPage />} />
 			</Route>
 		</Routes>
 	);
