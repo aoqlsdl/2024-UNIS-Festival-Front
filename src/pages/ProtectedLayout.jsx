@@ -29,14 +29,14 @@ const ProtectedLayout = () => {
 						<AuthPage />
 					</>
 				) : (
-					<>
+					<s.InputWrapper>
 						<s.Input
 							placeholder="패스워드 입력"
 							type="password"
 							onChange={handlePasswordChange}
 						/>
 						<s.Button onClick={handlePasswordInput}>확인</s.Button>
-					</>
+					</s.InputWrapper>
 				)}
 			</s.Container>
 		</>
