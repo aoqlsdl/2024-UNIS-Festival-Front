@@ -18,11 +18,11 @@ const RoutesComponent = () => {
 				element={<NavbarLayout title="예약주문(pick up)" />}
 			>
 				<Route index element={<OrderListPage />} />
-				<Route path=":order" element={<OrderPage />} />
+				<Route path=":order" element={<OrderPage />} /> {/* /orders/1 */}
 			</Route>
 			<Route path="/reviews" element={<NavbarLayout title="벗들의 찐후기" />}>
 				<Route index element={<ReviewListPage />} />
-				<Route path=":review" element={<ReviewPage />} />
+				<Route path=":review" element={<ReviewPage />} /> {/* /reviews/1 */}
 			</Route>
 		</Routes>
 	);
