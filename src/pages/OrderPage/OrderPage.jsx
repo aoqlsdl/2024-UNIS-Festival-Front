@@ -1,7 +1,22 @@
+import { useState, useEffect } from 'react';
+import { GetOrderTimesByDates } from '../../lib/api/order';
+
 const OrderPage = () => {
+	const [orderDate, setOrderDate] = useState();
+	const [orderTime, setOrderTime] = useState();
+
+	useEffect(() => {
+		GetOrderTimesByDates()
+			.then(res => {
+				setOrderDate(res);
+				setOrderTime(res);
+			})
+			.catch(err => console.log(err));
+	}, []);
 	return (
 		<>
-			<div>주문페이지</div>
+			<div>{orderDate}</div>
+			<div>{orderTime}</div>
 		</>
 	);
 };
