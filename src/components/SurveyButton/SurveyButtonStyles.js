@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.button`
+	-webkit-appreance: none;
 	width: 100px;
 	height: 100px;
-	border: 1px solid #000;
 `;
