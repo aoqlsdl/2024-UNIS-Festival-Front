@@ -18,6 +18,7 @@ export const Content = styled.div`
 export const Title = styled.div`
 	font-size: 1.25rem;
 	text-align: left;
+	margin-bottom: 0.63rem;
 `;
 
 export const ReservationBox = styled.div`
