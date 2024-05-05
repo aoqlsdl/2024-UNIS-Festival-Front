@@ -1,6 +1,6 @@
 import OrderService from './services/orderservice';
 
-export const GetOrderTimesByDates = async () => {
+export const getOrderTimesByDates = async () => {
 	try {
 		const res = await OrderService.getOrderTimesByDates();
 		return res.data;
@@ -10,7 +10,7 @@ export const GetOrderTimesByDates = async () => {
 	}
 };
 
-export const PostOrder = async orderData => {
+export const postOrder = async orderData => {
 	try {
 		const res = await OrderService.postOrder(orderData);
 		return res.data;
