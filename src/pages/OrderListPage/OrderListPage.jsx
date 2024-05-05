@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import * as s from './OrderList.styles';
-import { GetOrderTimesByDates } from '../../lib/api/order';
+import { getOrderTimesByDates } from '../../lib/api/order';
 import useHideCustomerName from '../../hooks/useHideCustomerName';
 import useMealTime from '../../hooks/useMealTime';
 import { Helmet } from 'react-helmet';
@@ -9,7 +9,7 @@ const OrderListPage = () => {
 	const [reservations, setReservations] = useState([]);
 
 	useEffect(() => {
-		GetOrderTimesByDates()
+		getOrderTimesByDates()
 			.then(data => {
 				setReservations(data.reservationList);
 			})
