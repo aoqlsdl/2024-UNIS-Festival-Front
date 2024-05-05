@@ -1,5 +1,6 @@
 import ReviewService from './services/reviewservice';
 
+// 리뷰 전체 최신순
 export const GetReviewByTime = async () => {
 	try {
 		const res = ReviewService.getReviewByTime();
@@ -10,16 +11,40 @@ export const GetReviewByTime = async () => {
 	}
 };
 
-export const getReviewByLike = async reviewData => {
+// 리뷰 5개 최신순
+export const GetBriefReviewByTime = async () => {
+	try {
+		const res = ReviewService.getBriefReviewByTime();
+		return res.data;
+	} catch (err) {
+		console.error('최신 5개 리뷰 조회 실패:', err);
+		throw new Error('최신 5개 리뷰 조회에 실패했습니다.');
+	}
+};
+
+// 리뷰 전체 인기순
+export const getReviewByLike = async () => {
 	try {
 		const res = ReviewService.getReviewByLike();
-		return Promise.resolve(res.data);
+		return res.data;
 	} catch (err) {
 		console.error('인기순 리뷰 조회 실패:', err);
 		throw new Error('인기순 리뷰 조회에 실패했습니다.');
 	}
 };
 
+// 리뷰 5개 인기순
+export const getBriefReviewByLike = async () => {
+	try {
+		const res = ReviewService.getBriefReviewByLike();
+		return res.data;
+	} catch (err) {
+		console.error('인기순 리뷰 조회 실패:', err);
+		throw new Error('인기순 리뷰 조회에 실패했습니다.');
+	}
+};
+
+// 리뷰 등록
 export const postReview = async reviewData => {
 	try {
 		const res = await OrderService.postOrder(reviewData);
