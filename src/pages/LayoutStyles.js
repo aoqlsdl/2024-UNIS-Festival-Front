@@ -5,6 +5,7 @@ export const Container = styled.div`
 	// height: 100vh;
 	min-width: 23.438rem;
 	max-width: 49.125rem;
+	text-align: center;
 `;
 export const Wrapper = styled.div``;
 export const InputWrapper = styled.div`
