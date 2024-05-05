@@ -3,6 +3,7 @@ import * as s from './OrderList.styles';
 import { GetOrderTimesByDates } from '../../lib/api/order';
 import useHideCustomerName from '../../hooks/useHideCustomerName';
 import useMealTime from '../../hooks/useMealTime';
+import { Helmet } from 'react-helmet';
 
 const OrderListPage = () => {
 	const [reservations, setReservations] = useState([]);
@@ -16,6 +17,9 @@ const OrderListPage = () => {
 	}, []);
 	return (
 		<>
+			<Helmet>
+				<title>예약 주문 (Pick up)</title>
+			</Helmet>
 			<s.Container>
 				<s.Content>
 					<s.Title>주문 방법</s.Title>
