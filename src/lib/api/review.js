@@ -47,7 +47,27 @@ export const getBriefReviewByLike = async () => {
 // 리뷰 등록
 export const postReview = async reviewData => {
 	try {
-		const res = await OrderService.postOrder(reviewData);
+		const formData = new FormData();
+		console.log(reviewData);
+
+		// 각 데이터를 FormData 객체에 추가
+		formData.append('title', reviewData.data.title);
+		formData.append('body', reviewData.data.body);
+		formData.append('rating', reviewData.data.rating);
+		formData.append('nickname', reviewData.data.nickname);
+		formData.append('phoneNumber', reviewData.data.phoneNumber);
+		formData.append('password', reviewData.data.password);
+
+		// 파일이 존재한다면 추가
+		if (reviewData.file) {
+			formData.append('file', reviewData.file);
+		}
+
+		const res = await ReviewService.postReview(formData, {
+			headers: {
+				'Content-Type': 'multipart/form-data',
+			},
+		});
 		return res.data;
 	} catch (err) {
 		console.error('리뷰 등록 실패:', err);
