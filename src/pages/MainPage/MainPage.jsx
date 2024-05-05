@@ -1,8 +1,9 @@
+import { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet';
 import UpperBanner from '../../components/UpperBanner/UpperBanner';
 import LowerBanner from '../../components/LowerBanner/LowerBanner';
 import * as s from './MainStyles';
 import MainButton from '../../components/MainButton/MainButton';
-import { useEffect, useState } from 'react';
 import { GetBriefReviewByTime } from '../../lib/api/review';
 
 const MainPage = () => {
@@ -15,6 +16,9 @@ const MainPage = () => {
 	// }, []);
 	return (
 		<>
+			<Helmet>
+				<title>유니스 주막</title>
+			</Helmet>
 			<UpperBanner />
 			<s.Contents>
 				<s.Title>환영하오...</s.Title>

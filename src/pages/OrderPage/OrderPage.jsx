@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet';
 import { GetOrderTimesByDates } from '../../lib/api/order';
 import useHideCustomerName from '../../hooks/useHideCustomerName';
 
@@ -17,6 +18,9 @@ const OrderPage = () => {
 
 	return (
 		<>
+			<Helmet>
+				<title>예약 주문 (Pick up)</title>
+			</Helmet>
 			<h2>기다리지 말고 현장에서 바로 픽업!</h2>
 			<ul>
 				{orderTimes.map((t, index) => (
