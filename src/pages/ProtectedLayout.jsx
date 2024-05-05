@@ -24,6 +24,7 @@ const ProtectedLayout = () => {
 	return (
 		<>
 			<s.Container>
+				<h2>Auth Page</h2>
 				{isAuth ? (
 					<>
 						<AuthPage />
