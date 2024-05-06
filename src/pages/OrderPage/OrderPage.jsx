@@ -1,43 +1,234 @@
 import { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { getOrderTimesByDates } from '../../lib/api/order';
-import useHideCustomerName from '../../hooks/useHideCustomerName';
+import Timeslot from '../../components/Timeslot/Timeslot';
+import * as s from './Order.styles';
+import MenuItem from '../../components/MenuItem/MenuItem';
+import menuItems from '../../mock/menu.json';
+import OrderModal from '../../components/OrderModal/OrderModal';
+import { postOrder } from '../../lib/api/order';
+import { formatPhoneNumber } from '../../lib/utils';
 
 const OrderPage = () => {
-	const [reservations, setReservations] = useState([]);
 	const [orderTimes, setOrderTimes] = useState([]);
+	const [selectedDay, setSelectedDay] = useState('8일');
+	const [selectedDate, setSelectedDate] = useState(8);
+	const [selectedTime, setSelectedTime] = useState('');
+	const [quantities, setQuantities] = useState(menuItems.map(() => 0));
+	const [customerName, setCustomerName] = useState('');
+	const [customerPhone, setCustomerPhone] = useState('');
+
+	const [showNameError, setShowNameError] = useState(false);
+	const [showPhoneError, setShowPhoneError] = useState(false);
+
+	const [isModalOpen, setIsModalOpen] = useState(false);
 
 	useEffect(() => {
 		getOrderTimesByDates()
 			.then(data => {
 				setOrderTimes(data.availabilityByTime);
-				setReservations(data.reservationList);
 			})
 			.catch(err => console.error('Error fetching order times:', err));
 	}, []);
+
+	const handleDayChange = day => {
+		setSelectedDay(day);
+		const numericDay = day.replace(/[^0-9]/g, ''); // 정규 표현식을 사용하여 숫자만 추출
+		setSelectedDate(numericDay);
+	};
+
+	const handleSlotSelect = (time, day) => {
+		const timeMatch = time.match(/\(([^)]+)\)/); // 괄호 안의 내용을 찾는 정규 표현식
+		if (timeMatch && timeMatch[1]) {
+			setSelectedTime(timeMatch[1]); // 괄호 안의 내용만 저장
+		} else {
+			setSelectedTime(''); // 매치되는 시간 정보가 없으면 빈 문자열 저장
+		}
+	};
+
+	// 메뉴별 수량 관리
+	const handleQuantityChange = (index, newQuantity) => {
+		const updatedQuantities = [...quantities];
+		updatedQuantities[index] = newQuantity;
+		setQuantities(updatedQuantities);
+	};
+
+	const handleCustomerNameChange = e => {
+		setCustomerName(e.target.value);
+		if (e.target.value) {
+			setShowNameError(false);
+		}
+	};
+
+	const handleCustomerPhoneChange = e => {
+		const formattedPhone = formatPhoneNumber(e.target.value);
+		setCustomerPhone(formattedPhone);
+
+		if (formattedPhone) {
+			setShowPhoneError(false);
+		}
+	};
+
+	// 폼 제출
+	const handleSubmit = async e => {
+		e.preventDefault();
+
+		let valid = true;
+
+		// 날짜와 시간 검증
+		if (!selectedDate || !selectedTime) {
+			valid = false;
+		}
+
+		// 메뉴 검증 (수량 모두 0인 경우)
+		const totalQuantity = quantities.reduce(
+			(sum, quantity) => sum + quantity,
+			0
+		);
+
+		if (totalQuantity === 0) {
+			valid = false;
+		}
+
+		// 이름 검증
+		if (!customerName) {
+			setShowNameError(true);
+			valid = false;
+		}
+
+		// 전화번호 검증
+		if (!customerPhone || !customerPhone.match(/^\d{3}-\d{4}-\d{4}$/)) {
+			setShowPhoneError(true);
+			valid = false;
+		}
+
+		if (!valid) {
+			alert('폼에 오류가 있습니다. 내용을 확인해주세요.');
+			return;
+		}
+
+		const orderData = {
+			date: selectedDate,
+			time: selectedTime,
+			menu1: quantities[0],
+			menu2: quantities[1],
+			menu3: quantities[2],
+			menu4: quantities[3],
+			menu5: quantities[4],
+			customerName,
+			customerPhone,
+		};
+		console.log(orderData);
+
+		try {
+			const result = await postOrder(orderData); // OrderService의 postOrder 함수를 사용
+			console.log('Order submitted successfully:', result);
+			setIsModalOpen(false); // Form 제출 후 모달 닫기
+		} catch (error) {
+			console.error('주문 요청 중 에러 발생: ', error);
+			alert('주문이 정상적으로 처리되지 않았습니다!');
+		}
+	};
 
 	return (
 		<>
 			<Helmet>
 				<title>예약 주문 (Pick up)</title>
 			</Helmet>
-			<h2>기다리지 말고 현장에서 바로 픽업!</h2>
-			<ul>
-				{orderTimes.map((t, index) => (
-					<li key={index}>
-						Time slot {index}: {t === 1 ? '예약 가능' : '예약 불가'}
-					</li>
-				))}
-			</ul>
-			<h2>벗들의 Pick Up</h2>
-			<ul>
-				{reservations.map((r, index) => (
-					<li key={index}>
-						Date: {r.date}, Time: {r.time}, Customer:
-						{useHideCustomerName(r.customerName)}
-					</li>
-				))}
-			</ul>
+			<s.Container>
+				<form onSubmit={handleSubmit}>
+					<s.TimeBox>
+						<s.SelectedInputBox>
+							<s.SelectedInput
+								type="text"
+								value={selectedDate}
+								name="date"
+								className="date"
+								readOnly
+							/>
+							일
+							<s.SelectedInput
+								type="text"
+								value={selectedTime}
+								name="time"
+								className="time"
+								readOnly
+							/>
+						</s.SelectedInputBox>
+						<s.SelectBox>
+							<s.TimeslotBox>
+								<s.BoxTitle>날짜</s.BoxTitle>
+								{['8일', '9일', '10일'].map(day => (
+									<s.DayLabel key={day}>
+										<s.DayInput
+											type="checkbox"
+											checked={selectedDay === day}
+											onChange={() => handleDayChange(day)}
+										/>
+										{day}
+									</s.DayLabel>
+								))}
+							</s.TimeslotBox>
+							<s.TimeslotBox>
+								<s.BoxTitle>시간</s.BoxTitle>
+								<Timeslot
+									day={selectedDay}
+									orderTimes={orderTimes}
+									onSlotSelect={handleSlotSelect}
+								/>
+							</s.TimeslotBox>
+						</s.SelectBox>
+					</s.TimeBox>
+					<s.MenuBox>
+						<s.MenuTitle>메뉴</s.MenuTitle>
+						{menuItems.map((item, index) => (
+							<MenuItem
+								key={index}
+								title={item.title}
+								img={item.img}
+								discount={item.discount}
+								quantity={quantities[index]}
+								onQuantityChange={newQuantity =>
+									handleQuantityChange(index, newQuantity)
+								}
+							/>
+						))}
+					</s.MenuBox>
+					<s.CustomerInfo>
+						<s.MenuTitle>주문자 정보</s.MenuTitle>
+						<s.InfoBox>
+							<s.InfoTitle>
+								예약자명{showNameError && <span>이름을 입력해주세요.</span>}
+							</s.InfoTitle>
+							<s.InfoInput onChange={e => handleCustomerNameChange(e)} />
+						</s.InfoBox>
+						<s.InfoBox>
+							<s.InfoTitle>
+								전화번호 (010-XXXX-XXXX){' '}
+								{showPhoneError && <span>전화번호를 입력해주세요.</span>}
+							</s.InfoTitle>
+							<s.InfoInput
+								type="text"
+								onChange={handleCustomerPhoneChange}
+								value={customerPhone}
+							/>
+						</s.InfoBox>
+						<s.Warning>
+							*예약자명과 입금자명이 일치해야 합니다. <br />
+							*기입하신 전화번호로 예약 문자가 전송됩니다.
+							<s.Account>*입금처: 기업 119-236332-02-010 노*경</s.Account>
+						</s.Warning>
+					</s.CustomerInfo>
+					<s.Order type="button" onClick={() => setIsModalOpen(true)}>
+						픽업주문하기
+					</s.Order>
+				</form>
+			</s.Container>
+			<OrderModal
+				isOpen={isModalOpen}
+				onClose={() => setIsModalOpen(false)}
+				onSubmit={handleSubmit}
+			/>
 		</>
 	);
 };

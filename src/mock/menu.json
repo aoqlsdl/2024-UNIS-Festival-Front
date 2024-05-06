@@ -1,0 +1,27 @@
+[
+	{
+		"title": "파닭전+매실레몬차세트 (6,500원)",
+		"discount": "설문 참여 약속 시 5,500원",
+		"img": "/imgs/order_menu1.webp"
+	},
+	{
+		"title": "이화굿즈- 이화햇살 (2,000원)",
+		"discount": "설문 이벤트 대상 x",
+		"img": "/imgs/order_menu2.webp"
+	},
+	{
+		"title": "파닭전 (4,500원)",
+		"discount": "설문 참여 약속 시 4,000원",
+		"img": "/imgs/order_menu3.webp"
+	},
+	{
+		"title": "매실레몬차 (2,500원)",
+		"discount": "설문 이벤트 대상 x",
+		"img": "/imgs/order_menu4.webp"
+	},
+	{
+		"title": "굿즈- 피자스티커3개입 (2,000원)",
+		"discount": "설문 이벤트 대상 x",
+		"img": "/imgs/order_menu5.webp"
+	}
+]
