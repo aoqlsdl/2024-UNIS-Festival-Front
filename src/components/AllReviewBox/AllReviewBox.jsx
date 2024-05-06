@@ -9,6 +9,7 @@ const AllReviewBox = () => {
 		GetReviewByTime()
 			.then(data => {
 				setReviews(data);
+				console.log(data);
 			})
 			.catch(err => console.error('리뷰 최신순 fetch 실패: ', err));
 	}, []);
