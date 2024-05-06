@@ -53,6 +53,7 @@ export const SelectedInput = styled.input`
 	border-bottom: 1px solid #000;
 	font-family: 'ChosunCentennial';
 	font-size: 1.25rem;
+	text-align: center;
 
 	&.date {
 		width: 1.5rem;
