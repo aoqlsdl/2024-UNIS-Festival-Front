@@ -1,9 +1,10 @@
 import ReviewService from './services/reviewservice';
+import { http } from './http';
 
 // 리뷰 전체 최신순
 export const GetReviewByTime = async () => {
 	try {
-		const res = ReviewService.getReviewByTime();
+		const res = await ReviewService.getReviewByTime();
 		return res.data;
 	} catch (err) {
 		console.error('최신순 리뷰 조회 실패:', err);
@@ -14,7 +15,7 @@ export const GetReviewByTime = async () => {
 // 리뷰 5개 최신순
 export const GetBriefReviewByTime = async () => {
 	try {
-		const res = ReviewService.getBriefReviewByTime();
+		const res = await ReviewService.getBriefReviewByTime();
 		return res.data;
 	} catch (err) {
 		console.error('최신 5개 리뷰 조회 실패:', err);
@@ -25,7 +26,7 @@ export const GetBriefReviewByTime = async () => {
 // 리뷰 전체 인기순
 export const getReviewByLike = async () => {
 	try {
-		const res = ReviewService.getReviewByLike();
+		const res = await ReviewService.getReviewByLike();
 		return res.data;
 	} catch (err) {
 		console.error('인기순 리뷰 조회 실패:', err);
@@ -36,7 +37,7 @@ export const getReviewByLike = async () => {
 // 리뷰 5개 인기순
 export const getBriefReviewByLike = async () => {
 	try {
-		const res = ReviewService.getBriefReviewByLike();
+		const res = await ReviewService.getBriefReviewByLike();
 		return res.data;
 	} catch (err) {
 		console.error('인기순 리뷰 조회 실패:', err);
@@ -44,26 +45,28 @@ export const getBriefReviewByLike = async () => {
 	}
 };
 
-// 리뷰 등록
+// 리뷰등록
 export const postReview = async reviewData => {
 	try {
 		const formData = new FormData();
-		console.log(reviewData);
 
-		// 각 데이터를 FormData 객체에 추가
-		formData.append('title', reviewData.data.title);
-		formData.append('body', reviewData.data.body);
-		formData.append('rating', reviewData.data.rating);
-		formData.append('nickname', reviewData.data.nickname);
-		formData.append('phoneNumber', reviewData.data.phoneNumber);
-		formData.append('password', reviewData.data.password);
+		// JSON 데이터를 Blob으로 변환 후 FormData에 추가
+		const json = JSON.stringify({
+			title: reviewData.data.title,
+			body: reviewData.data.body,
+			rating: reviewData.data.rating,
+			nickname: reviewData.data.nickname,
+			phoneNumber: reviewData.data.phoneNumber,
+			password: reviewData.data.password,
+		});
+		formData.append('data', new Blob([json], { type: 'application/json' }));
 
-		// 파일이 존재한다면 추가
-		if (reviewData.file) {
-			formData.append('file', reviewData.file);
-		}
+		// 각 파일을 'file' 키로 추가
+		reviewData.file.forEach((file, index) => {
+			formData.append(`file${index}`, file);
+		});
 
-		const res = await ReviewService.postReview(formData, {
+		const res = await http.post('/reviews/add', formData, {
 			headers: {
 				'Content-Type': 'multipart/form-data',
 			},

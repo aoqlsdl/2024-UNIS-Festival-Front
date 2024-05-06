@@ -24,7 +24,7 @@ export const Manual = styled.div`
 	max-width: 49.125rem;
 	height: 17.94rem;
 	margin-left: -1.13rem;
-	background-image: url(${props => props.bg});
+	background-image: url('/imgs/order_info_bg.webp');
 	background-size: 100vw auto;
 	background-repeat: no-repeat;
 	background-position: center bottom;

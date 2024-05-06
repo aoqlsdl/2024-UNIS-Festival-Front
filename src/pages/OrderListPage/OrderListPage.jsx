@@ -17,8 +17,6 @@ const OrderListPage = () => {
 			.catch(err => console.error('주문자 정보 fetch 실패!: ', err));
 	}, []);
 
-	const bg = import.meta.env.VITE_IMAGE_URL + 'imgs/order_info_bg.webp';
-
 	// 픽업 주문 페이지로 이동
 	const navigate = useNavigate();
 
@@ -33,7 +31,7 @@ const OrderListPage = () => {
 			<s.Container>
 				<s.Content>
 					<s.Title>주문 방법</s.Title>
-					<s.Manual bg={bg}>
+					<s.Manual>
 						<s.ManualTitle className="warning">
 							!픽업 시간 <s.UnderlinedText>30분 전</s.UnderlinedText>까지 예약
 							가능!
