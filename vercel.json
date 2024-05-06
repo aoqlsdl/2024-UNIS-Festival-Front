@@ -1,8 +1,4 @@
 {
-	"routes": [
-		{ "handle": "filesystem" },
-		{ "src": "/.*", "dest": "/index.html" }
-	],
 	"rewrites": [
 		{
 			"source": "/reservations",
@@ -31,6 +27,7 @@
 		{
 			"source": "/reviews/add",
 			"destination": "http://13.124.13.96:8080/reviews/add"
-		}
+		},
+		{ "source": "/(.*)", "destination": "/index.html" }
 	]
 }
