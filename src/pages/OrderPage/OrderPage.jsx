@@ -77,7 +77,6 @@ const OrderPage = () => {
 
 		// 날짜와 시간 검증
 		if (!selectedDate || !selectedTime) {
-			alert('일시를 선택해주세요.');
 			valid = false;
 		}
 
@@ -86,8 +85,8 @@ const OrderPage = () => {
 			(sum, quantity) => sum + quantity,
 			0
 		);
+
 		if (totalQuantity === 0) {
-			alert('메뉴는 하나 이상 선택해주세요.');
 			valid = false;
 		}
 
