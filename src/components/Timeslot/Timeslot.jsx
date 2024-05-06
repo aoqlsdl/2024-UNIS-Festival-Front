@@ -50,7 +50,8 @@ const Timeslot = ({ day, orderTimes, onSlotSelect }) => {
 								onChange={() => handleCheckboxChange(index)}
 								disabled={!orderTimes[startIndex + index]}
 							/>
-							{time} {orderTimes[startIndex + index] ? '' : '주문 마감'}
+							{time}{' '}
+							<span>{orderTimes[startIndex + index] ? '' : '주문 마감'}</span>
 						</s.TimeLabel>
 					))}
 				</s.Timebox>
