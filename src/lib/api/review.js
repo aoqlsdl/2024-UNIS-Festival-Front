@@ -61,9 +61,9 @@ export const postReview = async reviewData => {
 		});
 		formData.append('data', new Blob([json], { type: 'application/json' }));
 
-		// 파일이 배열로 존재한다면 모든 파일 추가
-		reviewData.file.forEach(file => {
-			formData.append('file', file);
+		// 각 파일을 'file' 키로 추가
+		reviewData.file.forEach((file, index) => {
+			formData.append(`file${index}`, file);
 		});
 
 		const res = await http.post('/reviews/add', formData, {

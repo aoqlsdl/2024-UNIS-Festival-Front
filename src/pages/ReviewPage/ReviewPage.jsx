@@ -35,8 +35,21 @@ const ReviewPage = () => {
 	const handleChange = e => {
 		const { name, value, files } = e.target;
 		if (name === 'file') {
-			setFormData(prevState => ({ ...prevState, file: Array.from(files) }));
-			setFileNames(Array.from(files).map(file => file.name)); // 파일명 리스트 업데이트
+			const fileList = Array.from(files); // 파일 목록을 배열로 변환
+
+			// 이전 파일 목록을 유지하고 새 파일을 추가
+			setFormData(prevState => ({
+				...prevState,
+				file: [...prevState.file, ...fileList],
+			}));
+
+			// 파일명을 상태에 저장
+			setFileNames(prevNames => [
+				...prevNames,
+				...fileList.map(file => file.name),
+			]);
+
+			console.log(fileNames);
 		} else if (name === 'rating') {
 			const floatValue = parseFloat(value);
 			if (!isNaN(floatValue)) {
