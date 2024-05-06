@@ -8,8 +8,10 @@ import ReviewPage from './ReviewPage/ReviewPage';
 import OrderListPage from './OrderListPage/OrderListPage';
 import ProtectedLayout from './ProtectedLayout';
 import AuthPage from './AuthPage/AuthPage';
+import useScrollToTop from '../hooks/useScrollToTop';
 
 const RoutesComponent = () => {
+	useScrollToTop();
 	return (
 		<Routes>
 			<Route path="/" element={<Layout />}>
