@@ -1,4 +1,5 @@
 import ReviewService from './services/reviewservice';
+import { http } from './http';
 
 // 리뷰 전체 최신순
 export const GetReviewByTime = async () => {
@@ -44,26 +45,28 @@ export const getBriefReviewByLike = async () => {
 	}
 };
 
-// 리뷰 등록
+// 리뷰등록
 export const postReview = async reviewData => {
 	try {
 		const formData = new FormData();
-		console.log(reviewData);
 
-		// 각 데이터를 FormData 객체에 추가
-		formData.append('title', reviewData.data.title);
-		formData.append('body', reviewData.data.body);
-		formData.append('rating', reviewData.data.rating);
-		formData.append('nickname', reviewData.data.nickname);
-		formData.append('phoneNumber', reviewData.data.phoneNumber);
-		formData.append('password', reviewData.data.password);
+		// JSON 데이터를 Blob으로 변환 후 FormData에 추가
+		const json = JSON.stringify({
+			title: reviewData.data.title,
+			body: reviewData.data.body,
+			rating: reviewData.data.rating,
+			nickname: reviewData.data.nickname,
+			phoneNumber: reviewData.data.phoneNumber,
+			password: reviewData.data.password,
+		});
+		formData.append('data', new Blob([json], { type: 'application/json' }));
 
-		// 파일이 존재한다면 추가
-		if (reviewData.file) {
-			formData.append('file', reviewData.file);
-		}
+		// 파일이 배열로 존재한다면 모든 파일 추가
+		reviewData.file.forEach(file => {
+			formData.append('file', file);
+		});
 
-		const res = await ReviewService.postReview(formData, {
+		const res = await http.post('/reviews/add', formData, {
 			headers: {
 				'Content-Type': 'multipart/form-data',
 			},
