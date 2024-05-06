@@ -55,4 +55,8 @@ export const Button = styled.button`
 	font-family: 'ChosunCentennial';
 	color: #fff;
 	margin: 0 auto;
+
+	&:focus {
+		outline: none;
+	}
 `;

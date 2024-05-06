@@ -130,4 +130,8 @@ export const Order = styled.button`
 	font-size: 1.25rem;
 	font-family: 'ChosunCentennial';
 	color: #fff;
+
+	&:focus {
+		outline: none;
+	}
 `;
