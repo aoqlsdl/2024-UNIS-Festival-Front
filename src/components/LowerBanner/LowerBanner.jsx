@@ -1,11 +1,36 @@
-import * as s from './LowerBannerStyles';
+import React, { useEffect, useState } from 'react';
+import styled from 'styled-components';
+
+const Container = styled.div`
+	width: 100vw;
+	min-width: 23.438rem;
+	max-width: 49.125rem;
+	height: 300px;
+	background-color: #dedede;
+`;
 
 const LowerBanner = () => {
-	return (
-		<>
-			<s.Container>하단 배너 이미지 슬라이드</s.Container>
-		</>
-	);
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const imageSources = [
+        '/dist/imgs/lowBanner1.png',
+        '/dist/imgs/lowBanner2.png',
+		'/dist/imgs/lowBanner3.png',
+		'/dist/imgs/lowBanner4.png'
+    ];
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentIndex(prevIndex => (prevIndex + 1) % imageSources.length);
+        }, 4000);
+
+        return () => clearInterval(interval);
+    }, []);
+
+    return (
+        <Container>
+            <img id="image" src={imageSources[currentIndex]} alt="UNIS POSTER_Upper" height={300} width={800} />
+        </Container>
+    );
 };
 
 export default LowerBanner;
