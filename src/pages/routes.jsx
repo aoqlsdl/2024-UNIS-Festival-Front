@@ -17,14 +17,11 @@ const RoutesComponent = () => {
 			</Route>
 			<Route path="/orders" element={<NavbarLayout title="예약 주문" />}>
 				<Route index element={<OrderListPage />} />
-				<Route path=":order" element={<OrderPage />} /> {/* /orders/1 */}
+				<Route path="order" element={<OrderPage />} /> /orders/1
 			</Route>
 			<Route path="/reviews" element={<NavbarLayout title="벗들의 찐후기" />}>
 				<Route index element={<ReviewListPage />} />
-				{/* <Route path=":review" element={<ReviewPage />} /> /reviews/1 */}
-			</Route>
-			<Route path="/reviews" element={<NavbarLayout title="리뷰하기" />}>
-				<Route path=":review" element={<ReviewPage />} /> {/* /reviews/1 */}
+				<Route path="review" element={<ReviewPage />} /> /reviews/1
 			</Route>
 			<Route path="/auth" element={<ProtectedLayout />}>
 				<Route index element={<AuthPage />} />
