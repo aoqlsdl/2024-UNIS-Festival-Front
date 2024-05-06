@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
+import { useNavigate } from 'react-router-dom';
 import { getOrderTimesByDates } from '../../lib/api/order';
 import Timeslot from '../../components/Timeslot/Timeslot';
 import * as s from './Order.styles';
@@ -8,6 +9,12 @@ import menuItems from '../../mock/menu.json';
 import OrderModal from '../../components/OrderModal/OrderModal';
 import { postOrder } from '../../lib/api/order';
 import { formatPhoneNumber } from '../../lib/utils';
+
+const dayMapping = {
+	'8일': 1,
+	'9일': 2,
+	'10일': 3,
+};
 
 const OrderPage = () => {
 	const [orderTimes, setOrderTimes] = useState([]);
@@ -23,6 +30,8 @@ const OrderPage = () => {
 
 	const [isModalOpen, setIsModalOpen] = useState(false);
 
+	const navigate = useNavigate();
+
 	useEffect(() => {
 		getOrderTimesByDates()
 			.then(data => {
@@ -33,8 +42,6 @@ const OrderPage = () => {
 
 	const handleDayChange = day => {
 		setSelectedDay(day);
-		const numericDay = day.replace(/[^0-9]/g, ''); // 정규 표현식을 사용하여 숫자만 추출
-		setSelectedDate(numericDay);
 	};
 
 	const handleSlotSelect = (time, day) => {
@@ -69,34 +76,22 @@ const OrderPage = () => {
 		}
 	};
 
-	// 폼 제출
 	const handleSubmit = async e => {
 		e.preventDefault();
-
 		let valid = true;
 
-		// 날짜와 시간 검증
-		if (!selectedDate || !selectedTime) {
-			valid = false;
-		}
+		const selectedDate = dayMapping[selectedDay]; // 8일 -> 1, 9일 -> 2, 10일 -> 3으로 변환
 
-		// 메뉴 검증 (수량 모두 0인 경우)
-		const totalQuantity = quantities.reduce(
-			(sum, quantity) => sum + quantity,
-			0
-		);
+		if (!selectedDate || !selectedTime) valid = false;
 
-		if (totalQuantity === 0) {
-			valid = false;
-		}
+		const totalQuantity = quantities.reduce((sum, qty) => sum + qty, 0);
+		if (totalQuantity === 0) valid = false;
 
-		// 이름 검증
 		if (!customerName) {
 			setShowNameError(true);
 			valid = false;
 		}
 
-		// 전화번호 검증
 		if (!customerPhone || !customerPhone.match(/^\d{3}-\d{4}-\d{4}$/)) {
 			setShowPhoneError(true);
 			valid = false;
@@ -118,12 +113,13 @@ const OrderPage = () => {
 			customerName,
 			customerPhone,
 		};
-		console.log(orderData);
 
 		try {
-			const result = await postOrder(orderData); // OrderService의 postOrder 함수를 사용
-			console.log('Order submitted successfully:', result);
-			setIsModalOpen(false); // Form 제출 후 모달 닫기
+			const result = await postOrder(orderData);
+			console.log('주문 성공: ', result);
+			setIsModalOpen(false);
+			alert('주문이 정상적으로 완료되었습니다!');
+			navigate('/orders');
 		} catch (error) {
 			console.error('주문 요청 중 에러 발생: ', error);
 			alert('주문이 정상적으로 처리되지 않았습니다!');
