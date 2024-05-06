@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
-import { GetOrderTimesByDates } from '../../lib/api/order';
+import { getOrderTimesByDates } from '../../lib/api/order';
 import useHideCustomerName from '../../hooks/useHideCustomerName';
 
 const OrderPage = () => {
@@ -8,7 +8,7 @@ const OrderPage = () => {
 	const [orderTimes, setOrderTimes] = useState([]);
 
 	useEffect(() => {
-		GetOrderTimesByDates()
+		getOrderTimesByDates()
 			.then(data => {
 				setOrderTimes(data.availabilityByTime);
 				setReservations(data.reservationList);

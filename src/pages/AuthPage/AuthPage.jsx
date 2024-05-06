@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
-import { GetOrderTimesByDates } from '../../lib/api/order';
+import { getOrderTimesByDates } from '../../lib/api/order';
 import * as s from './AuthStyles';
 
 const AuthPage = () => {
 	const [reservations, setReservations] = useState([]);
 
 	useEffect(() => {
-		GetOrderTimesByDates()
+		getOrderTimesByDates()
 			.then(data => {
 				setReservations(data.reservationList);
 			})
