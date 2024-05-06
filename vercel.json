@@ -1,3 +1,33 @@
 {
-	"rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+	"rewrites": [
+		{
+			"source": "/reservations",
+			"destination": "http://13.124.13.96:8080/reservations"
+		},
+		{
+			"source": "/reservations/add",
+			"destination": "http://13.124.13.96:8080/reservations/add"
+		},
+		{
+			"source": "/reviews/latest",
+			"destination": "http://13.124.13.96:8080/reviews/latest"
+		},
+		{
+			"source": "/reviews/latest/brief",
+			"destination": "http://13.124.13.96:8080/reviews/latest/brief"
+		},
+		{
+			"source": "/reviews/best",
+			"destination": "http://13.124.13.96:8080/reviews/best"
+		},
+		{
+			"source": "/reviews/best/brief",
+			"destination": "http://13.124.13.96:8080/reviews/best/brief"
+		},
+		{
+			"source": "/reviews/add",
+			"destination": "http://13.124.13.96:8080/reviews/add"
+		},
+		{ "source": "/(.*)", "destination": "/index.html" }
+	]
 }
