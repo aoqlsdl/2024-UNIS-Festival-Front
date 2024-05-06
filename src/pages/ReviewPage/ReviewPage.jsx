@@ -80,6 +80,18 @@ const ReviewPage = () => {
 	const handleSubmit = async e => {
 		e.preventDefault();
 
+		// 입력 필드의 빈 값을 검사
+		if (
+			!formData.title ||
+			!formData.body ||
+			formData.rating === 0 ||
+			!formData.nickname ||
+			!formData.password
+		) {
+			alert('리뷰 등록에 실패했습니다. 모든 항목을 작성해주세요.');
+			return; // 빈 값이 있을 경우 함수 종료
+		}
+
 		try {
 			const reviewData = {
 				data: {
