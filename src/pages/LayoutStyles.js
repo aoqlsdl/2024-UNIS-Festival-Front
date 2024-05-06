@@ -6,6 +6,8 @@ export const Container = styled.div`
 	min-width: 23.438rem;
 	max-width: 49.125rem;
 	text-align: center;
+	font-family: 'AppleSDGothic';
+	margin-top: 2rem;
 `;
 export const Wrapper = styled.div``;
 export const InputWrapper = styled.div`
@@ -38,4 +40,17 @@ export const Button = styled.button`
 	border-radius: 8px;
 	background-color: blue;
 	color: #fff;
+`;
+
+export const InfoBox = styled.div`
+	width: 20rem;
+	padding: 1rem;
+	margin: 0 0 1rem 1rem;
+	background-color: var(--light-gray);
+`;
+
+export const Info = styled.li`
+	font-size: 0.65rem;
+	text-align: left;
+	margin: 0;
 `;
