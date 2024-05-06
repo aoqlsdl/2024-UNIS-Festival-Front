@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet';
 import * as s from './OrderList.styles';
 import { getOrderTimesByDates } from '../../lib/api/order';
 import useHideCustomerName from '../../hooks/useHideCustomerName';
 import useMealTime from '../../hooks/useMealTime';
-import { Helmet } from 'react-helmet';
 
 const OrderListPage = () => {
 	const [reservations, setReservations] = useState([]);
@@ -15,6 +15,8 @@ const OrderListPage = () => {
 			})
 			.catch(err => console.error('주문자 정보 fetch 실패!: ', err));
 	}, []);
+
+	const bg = import.meta.env.VITE_LOCAL_URL + 'imgs/order_info_bg.webp';
 	return (
 		<>
 			<Helmet>
@@ -23,6 +25,29 @@ const OrderListPage = () => {
 			<s.Container>
 				<s.Content>
 					<s.Title>주문 방법</s.Title>
+					<s.Manual bg={bg}>
+						<s.ManualTitle className="warning">
+							!픽업 시간 <s.UnderlinedText>30분 전</s.UnderlinedText>까지 예약
+							가능!
+						</s.ManualTitle>
+						<s.ManualContent>
+							<s.ManualTitle>1. 예약 설정</s.ManualTitle>
+							<s.ManualDesc>
+								픽업하고 싶은 날짜와 시간을 선택하세요.
+							</s.ManualDesc>
+						</s.ManualContent>
+						<s.ManualContent>
+							<s.ManualTitle>2. 메뉴 선택</s.ManualTitle>
+							<s.ManualDesc>메뉴를 선택해 주세요.</s.ManualDesc>
+						</s.ManualContent>
+						<s.ManualContent className="last-info">
+							<s.ManualTitle>3. 예약 완료</s.ManualTitle>
+							<s.ManualDesc>
+								픽업주문하기 후 ➡️ 비용을 입금하면 픽업 예약 완료!
+							</s.ManualDesc>
+						</s.ManualContent>
+						<s.Order>픽업주문하기</s.Order>
+					</s.Manual>
 				</s.Content>
 				<s.Content className="pickup">
 					<s.Title>벗들의 Pick-up</s.Title>
