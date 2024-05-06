@@ -4,7 +4,7 @@ import { http } from './http';
 // 리뷰 전체 최신순
 export const GetReviewByTime = async () => {
 	try {
-		const res = ReviewService.getReviewByTime();
+		const res = await ReviewService.getReviewByTime();
 		return res.data;
 	} catch (err) {
 		console.error('최신순 리뷰 조회 실패:', err);
@@ -15,7 +15,7 @@ export const GetReviewByTime = async () => {
 // 리뷰 5개 최신순
 export const GetBriefReviewByTime = async () => {
 	try {
-		const res = ReviewService.getBriefReviewByTime();
+		const res = await ReviewService.getBriefReviewByTime();
 		return res.data;
 	} catch (err) {
 		console.error('최신 5개 리뷰 조회 실패:', err);
@@ -26,7 +26,7 @@ export const GetBriefReviewByTime = async () => {
 // 리뷰 전체 인기순
 export const getReviewByLike = async () => {
 	try {
-		const res = ReviewService.getReviewByLike();
+		const res = await ReviewService.getReviewByLike();
 		return res.data;
 	} catch (err) {
 		console.error('인기순 리뷰 조회 실패:', err);
@@ -37,7 +37,7 @@ export const getReviewByLike = async () => {
 // 리뷰 5개 인기순
 export const getBriefReviewByLike = async () => {
 	try {
-		const res = ReviewService.getBriefReviewByLike();
+		const res = await ReviewService.getBriefReviewByLike();
 		return res.data;
 	} catch (err) {
 		console.error('인기순 리뷰 조회 실패:', err);
