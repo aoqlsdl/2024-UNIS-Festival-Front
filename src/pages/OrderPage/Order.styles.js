@@ -27,7 +27,9 @@ export const BoxTitle = styled.div`
 export const DayLabel = styled.label``;
 
 export const DayInput = styled.input`
+	margin-right: 0.88rem;
 	margin-bottom: 1rem;
+	accent-color: var(--light-point);
 `;
 
 export const SelectedInputBox = styled.div`
