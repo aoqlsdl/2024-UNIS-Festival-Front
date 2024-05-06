@@ -1,8 +1,8 @@
 @import './fonts.css';
 
-/* :root {
-	color system
-} */
+:root {
+	--point: #a08327;
+}
 
 body {
 	font-family: ChosunCentennial, sans-serif;
