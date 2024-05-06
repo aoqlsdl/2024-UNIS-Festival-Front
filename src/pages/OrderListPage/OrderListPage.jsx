@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
+import { useNavigate } from 'react-router-dom';
 import * as s from './OrderList.styles';
 import { getOrderTimesByDates } from '../../lib/api/order';
 import useHideCustomerName from '../../hooks/useHideCustomerName';
@@ -16,7 +17,14 @@ const OrderListPage = () => {
 			.catch(err => console.error('주문자 정보 fetch 실패!: ', err));
 	}, []);
 
-	const bg = import.meta.env.VITE_LOCAL_URL + 'imgs/order_info_bg.webp';
+	const bg = import.meta.env.VITE_IMAGE_URL + 'imgs/order_info_bg.webp';
+
+	// 픽업 주문 페이지로 이동
+	const navigate = useNavigate();
+
+	const goToReservation = () => {
+		navigate(`/orders/order`);
+	};
 	return (
 		<>
 			<Helmet>
@@ -46,7 +54,9 @@ const OrderListPage = () => {
 								픽업주문하기 후 ➡️ 비용을 입금하면 픽업 예약 완료!
 							</s.ManualDesc>
 						</s.ManualContent>
-						<s.Order>픽업주문하기</s.Order>
+						<s.Order type="button" onClick={() => goToReservation()}>
+							픽업주문하기
+						</s.Order>
 					</s.Manual>
 				</s.Content>
 				<s.Content className="pickup">
