@@ -1,13 +1,20 @@
 import { Helmet } from 'react-helmet';
 import * as s from './ReviewList.styles';
 import AllReviewBox from '../../components/AllReviewBox/AllReviewBox';
+import { useNavigate } from 'react-router-dom';
 
 const ReviewListPage = () => {
-	<Helmet>
-		<title>벗들의 생생한 후기</title>
-	</Helmet>;
+	const navigate = useNavigate();
+
+	const goToReview = () => {
+		navigate('/reviews/review');
+	};
 	return (
 		<>
+			<Helmet>
+				<title>벗들의 생생한 후기</title>
+			</Helmet>
+			;
 			<s.Container>
 				<s.Guide>
 					<s.Title>리뷰 가이드</s.Title>
@@ -29,7 +36,9 @@ const ReviewListPage = () => {
 						치킨(2명), 아메리카노(3명), 베스킨라빈스(4명)
 					</s.GuideText>
 				</s.Guide>
-				<s.Button>후기 남기고 기프티콘 받으러 가기</s.Button>
+				<s.Button type="button" onClick={() => goToReview()}>
+					후기 남기고 기프티콘 받으러 가기
+				</s.Button>
 
 				<s.ReviewBox>
 					<s.Title>쩝쩝 석박사생들의 생생한 후기</s.Title>
