@@ -23,11 +23,11 @@ const AuthPage = () => {
 							<th>시</th>
 							<th>이름</th>
 							<th>전화번호</th>
-							<th>파닭전+매실레몬차</th>
-							<th>이화햇살</th>
-							<th>파닭전</th>
-							<th>매실레몬차</th>
-							<th>굿즈- 피자스티커3</th>
+							<th>메뉴1</th>
+							<th>메뉴2</th>
+							<th>메뉴3</th>
+							<th>메뉴4</th>
+							<th>메뉴5</th>
 						</tr>
 					</thead>
 					<tbody>

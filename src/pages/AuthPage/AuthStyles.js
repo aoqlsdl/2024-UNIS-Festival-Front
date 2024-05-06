@@ -10,9 +10,9 @@ export const Container = styled.div`
 export const Table = styled.div`
 	width: 21.56rem;
 	margin: 0 auto;
-	font-size: 0.5rem;
+	font-size: 0.65rem;
 
 	& > thead {
-		font-size: 0.45rem;
+		font-size: 0.7rem;
 	}
 `;
