@@ -4,3 +4,10 @@
 	font-family: 'ChosunCentennial';
 	src: url('/fonts/ChosunCentennial_ttf.ttf') format('truetype'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
+
+/* apple sd gothic neo */
+@font-face {
+	font-display: swap;
+	font-family: 'AppleSDGothicNeo';
+	src: url('/fonts/AppleSDGothicM.ttf') format('truetype');
+}
