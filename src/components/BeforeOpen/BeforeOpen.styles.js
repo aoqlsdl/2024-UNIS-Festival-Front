@@ -32,6 +32,7 @@ export const Club = styled.p`
 
 export const Countdown = styled.div`
 	font-size: 1.25rem;
-	margin-top: 0.5rem;
+	margin-top: 0.75rem;
 	color: var(--point);
+	font-weight: 600;
 `;
