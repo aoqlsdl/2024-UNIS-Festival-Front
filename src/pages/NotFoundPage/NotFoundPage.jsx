@@ -10,8 +10,8 @@ const NotFoundPage = () => {
 	return (
 		<>
 			<s.Container>
-				<s.Text>404 Not Found :(</s.Text>
-				<s.Desc>경로를 다시 확인해주세요.</s.Desc>
+				<s.Text>벗, 길을 잘못 들었소</s.Text>
+				<s.Desc>경로를 다시 확인해주세요</s.Desc>
 				<s.Button type="button" onClick={() => goToMain()}>
 					메인 페이지로 돌아가기
 				</s.Button>
