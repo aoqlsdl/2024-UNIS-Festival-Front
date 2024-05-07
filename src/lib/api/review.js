@@ -50,8 +50,12 @@ export const postReview = async (reviewData, files) => {
 	try {
 		const formData = new FormData();
 
-		// Review 데이터를 JSON 문자열로 변환하여 FormData에 추가
-		formData.append('data', JSON.stringify(reviewData));
+		// Review 데이터를 JSON 문자열로 변환하고 블롭으로 만들어 FormData에 추가
+		const jsonReviewData = JSON.stringify(reviewData);
+		const blobReviewData = new Blob([jsonReviewData], {
+			type: 'application/json',
+		});
+		formData.append('data', blobReviewData);
 
 		// 파일(들)을 FormData에 추가
 		files.forEach(file => {
@@ -61,7 +65,8 @@ export const postReview = async (reviewData, files) => {
 		// Axios를 통한 POST 요청
 		const { data } = await axios.post(
 			`${import.meta.env.VITE_APP_API_URL}reviews/add`,
-			formData
+			formData,
+			{ headers: { 'Content-Type': 'multipart/form-data' } }
 		);
 
 		console.log(data);
