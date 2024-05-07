@@ -42,6 +42,8 @@ const OrderPage = () => {
 
 	const handleDayChange = day => {
 		setSelectedDay(day);
+		const dateNumber = dayMapping[day];
+		setSelectedDate(dateNumber + 7);
 	};
 
 	const handleSlotSelect = (time, day) => {
@@ -203,7 +205,7 @@ const OrderPage = () => {
 						</s.InfoBox>
 						<s.InfoBox>
 							<s.InfoTitle>
-								전화번호 (010-XXXX-XXXX){' '}
+								전화번호 (숫자만 입력)
 								{showPhoneError && <span>전화번호를 입력해주세요.</span>}
 							</s.InfoTitle>
 							<s.InfoInput
