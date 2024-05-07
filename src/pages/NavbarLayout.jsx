@@ -6,9 +6,9 @@ import * as s from './LayoutStyles';
 const NavbarLayout = ({ title }) => {
 	return (
 		<>
-			<s.Container>
+			<s.Container className="nav">
 				<Navbar title={title} />
-				<s.Wrapper>
+				<s.Wrapper className="nav">
 					<Outlet />
 				</s.Wrapper>
 				<Footer />
