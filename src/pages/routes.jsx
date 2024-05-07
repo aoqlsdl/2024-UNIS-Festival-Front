@@ -40,6 +40,11 @@ const RoutesComponent = () => {
 					<Route index element={<MainPage />} />
 				</Route>
 			)}
+
+			{/* <Route path="/" element={<Layout />}>
+				<Route index element={<MainPage />} />
+			</Route> */}
+
 			<Route path="/orders" element={<NavbarLayout title="예약 주문" />}>
 				<Route index element={<OrderListPage />} />
 				<Route path="order" element={<OrderPage />} /> /orders/1

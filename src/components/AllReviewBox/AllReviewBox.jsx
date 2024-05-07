@@ -20,7 +20,9 @@ const AllReviewBox = () => {
 					{reviews.map(review => (
 						<s.Contents key={review.reviewId}>
 							<s.Review>
-								<StarsDisplay rating={review.rating} />
+								<s.StarBox>
+									<StarsDisplay rating={review.rating} />
+								</s.StarBox>
 								<s.ReviewTitle>{review.title}</s.ReviewTitle>
 								<s.ReviewDesc>{review.body}</s.ReviewDesc>
 								<s.Reviewer>닉네임: {review.nickname}</s.Reviewer>

@@ -57,14 +57,17 @@ export const Gifts = styled.img`
 `;
 
 export const Title = styled.p`
+	width: 21.56rem;
 	text-align: left;
 	font-size: 1.25rem;
-	margin: 0 0 1.25rem 0.94rem;
+	margin: 0 auto 1.25rem;
 `;
 
 export const Button = styled.button`
 	-webkit-appearance: none;
-	width: 21.56rem;
+	width: 90%;
+	min-width: 21.56rem;
+	max-width: 49.125rem;
 	height: 2.5rem;
 	margin: 0 auto 2.13rem;
 	border: none;

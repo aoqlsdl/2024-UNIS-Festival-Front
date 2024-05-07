@@ -17,7 +17,6 @@ const BeforeOpen = () => {
 				clearInterval(interval);
 				setTimeLeft('00:00:00:00');
 			} else {
-				const days = Math.floor(difference / (1000 * 60 * 60 * 24));
 				const hours = Math.floor(
 					(difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
 				);

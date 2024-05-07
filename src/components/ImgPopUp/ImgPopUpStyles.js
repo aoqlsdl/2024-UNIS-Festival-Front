@@ -14,7 +14,7 @@ export const Background = styled.div`
 `;
 
 export const Img = styled.img`
-	width: 70%;
+	width: 20rem;
 	min-width: 20rem;
 	max-width: 49.125rem;
 	height: fit-content;
