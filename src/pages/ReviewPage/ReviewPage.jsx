@@ -94,21 +94,16 @@ const ReviewPage = () => {
 
 		try {
 			const reviewData = {
-				data: {
-					title: formData.title,
-					rating: formData.rating,
-					body: formData.body,
-					nickname: formData.nickname,
-					phoneNumber: formData.phoneNumber,
-					password: formData.password,
-				},
-				file: formData.file,
+				title: formData.title,
+				body: formData.body,
+				rating: formData.rating,
+				nickname: formData.nickname,
+				phoneNumber: formData.phoneNumber,
+				password: formData.password,
 			};
 
-			console.log(reviewData);
-
-			const response = await postReview(reviewData);
-			console.log('리뷰 등록 성공: ', response);
+			const response = await postReview(reviewData, formData.file); // 파일 리스트를 postReview 함수에 전달
+			console.log('주문 성공: ', response);
 			setIsModalOpen(false);
 			alert('리뷰가 등록되었습니다!');
 			navigate('/reviews');
