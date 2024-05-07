@@ -12,7 +12,9 @@ export const Container = styled.div`
 		font-family: 'AppleSDGothicNeoM';
 	}
 `;
-export const Wrapper = styled.div``;
+export const Wrapper = styled.div`
+	margin-top: 7rem;
+`;
 export const InputWrapper = styled.div`
 	width: 20rem;
 	height: 100vh;
