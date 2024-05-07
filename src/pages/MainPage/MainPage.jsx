@@ -46,7 +46,9 @@ const MainPage = () => {
 								title={'이벤트'}
 								desc={'참여만 해도 반값 할인'}
 								onClick={() =>
-									window.open('https://forms.gle/kTNJw7QeryxZ48Uc9')
+									window.open(
+										'https://docs.google.com/forms/d/1mxTE5UMK6Jppfxrd0ZVAlhV9lrJvZW4-An-Et_wnrBs/edit'
+									)
 								}
 							/>
 							<MainButton
