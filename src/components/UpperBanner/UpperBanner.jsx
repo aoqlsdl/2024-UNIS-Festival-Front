@@ -14,8 +14,8 @@ const UpperBanner = () => {
         const imageElement = document.getElementById('image'); // 이미지 요소 가져오기
         const imageSources = [
             // 이미지 소스 배열
-            '/dist/imgs/map.webp',
-            '/dist/imgs/menu.png'
+            '/public/imgs/map.webp',
+            '/public/imgs/upperBanner.webp'
         ];
         let currentIndex = 0; // 현재 이미지 인덱스
 
