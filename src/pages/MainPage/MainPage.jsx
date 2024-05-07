@@ -4,16 +4,16 @@ import UpperBanner from '../../components/UpperBanner/UpperBanner';
 import LowerBanner from '../../components/LowerBanner/LowerBanner';
 import * as s from './MainStyles';
 import MainButton from '../../components/MainButton/MainButton';
-import { GetBriefReviewByTime } from '../../lib/api/review';
+import BriefReviewBox from '../../components/BriefReviewBox/BriefReviewBox';
+import { useNavigate } from 'react-router-dom';
 
 const MainPage = () => {
-	const [reviews, setReviews] = useState([]);
+	const navigate = useNavigate();
 
-	// useEffect(() => {
-	// 	GetBriefReviewByTime().then(data => {
-	// 		console.log(data);
-	// 	});
-	// }, []);
+	const goToReview = () => {
+		navigate('/reviews');
+	};
+
 	return (
 		<>
 			<Helmet>
@@ -26,8 +26,12 @@ const MainPage = () => {
 				<MainButton title={'이벤트'} desc={'참여만 해도 반값할인'} />
 				<MainButton title={'오시는 길'} desc={'부스 위치 안내도'} />
 			</s.Contents>
-			<s.Contents>
+			<s.Contents className="review">
 				<s.Title>벗들의 생생한 후기</s.Title>
+				<BriefReviewBox />
+				<s.ReviewButton type="button" onClick={() => goToReview()}>
+					후기 남기고 기프티콘 받으러 가기
+				</s.ReviewButton>
 			</s.Contents>
 			<s.Contents>
 				<s.Title>어젯밤 구해주신 홍보물입니다</s.Title>
