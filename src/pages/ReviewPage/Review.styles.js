@@ -130,8 +130,8 @@ export const File = styled.label`
 	}
 
 	& > span {
-		width: 3.5rem;
-		height: 1rem;
+		width: 3rem;
+		height: fit-content;
 	}
 `;
 
