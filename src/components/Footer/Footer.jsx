@@ -9,14 +9,18 @@ const Footer = () => {
 						<s.Title>FOLLOW US</s.Title>
 						<s.Route>
 							<s.Icon src="/icons/insta.svg" />
-							<s.Link href="">instagram(@unis_ewha)</s.Link>
+							<s.Link href="https://www.instagram.com/unis_ewha?igsh=Z3BsN281Mmt2YnZu">
+								instagram(@unis_ewha)
+							</s.Link>
 						</s.Route>
 					</s.LinkBox>
 					<s.LinkBox>
 						<s.Title>문의하기</s.Title>
 						<s.Route>
 							<s.Icon src="/icons/kakao.svg" className="kakao" />
-							<s.Link href="">kakotalk(@unis)</s.Link>
+							<s.Link href="http://pf.kakao.com/_IxbTkG">
+								kakotalk(@unis)
+							</s.Link>
 						</s.Route>
 					</s.LinkBox>
 				</s.Top>
