@@ -1,5 +1,5 @@
 import ReviewService from './services/reviewservice';
-import { http } from './http';
+import axios from 'axios';
 
 // 리뷰 전체 최신순
 export const GetReviewByTime = async () => {
@@ -46,32 +46,31 @@ export const getBriefReviewByLike = async () => {
 };
 
 // 리뷰등록
-export const postReview = async reviewData => {
+export const postReview = async (reviewData, files) => {
 	try {
 		const formData = new FormData();
 
-		// JSON 데이터를 Blob으로 변환 후 FormData에 추가
-		const json = JSON.stringify({
-			title: reviewData.data.title,
-			body: reviewData.data.body,
-			rating: reviewData.data.rating,
-			nickname: reviewData.data.nickname,
-			phoneNumber: reviewData.data.phoneNumber,
-			password: reviewData.data.password,
+		// Review 데이터를 JSON 문자열로 변환하고 블롭으로 만들어 FormData에 추가
+		const jsonReviewData = JSON.stringify(reviewData);
+		const blobReviewData = new Blob([jsonReviewData], {
+			type: 'application/json',
 		});
-		formData.append('data', new Blob([json], { type: 'application/json' }));
+		formData.append('data', blobReviewData);
 
-		// 각 파일을 'file' 키로 추가
-		reviewData.file.forEach((file, index) => {
-			formData.append(`file${index}`, file);
+		// 파일(들)을 FormData에 추가
+		files.forEach(file => {
+			formData.append('file', file);
 		});
 
-		const res = await http.post('/reviews/add', formData, {
-			headers: {
-				'Content-Type': 'multipart/form-data',
-			},
-		});
-		return res.data;
+		// Axios를 통한 POST 요청
+		const { data } = await axios.post(
+			`${import.meta.env.VITE_APP_API_URL}reviews/add`,
+			formData,
+			{ headers: { 'Content-Type': 'multipart/form-data' } }
+		);
+
+		console.log(data);
+		return data;
 	} catch (err) {
 		console.error('리뷰 등록 실패:', err);
 		throw new Error('리뷰 등록에 실패했습니다.');
