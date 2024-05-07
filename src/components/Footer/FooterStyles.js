@@ -27,7 +27,7 @@ export const Title = styled.p`
 	text-align: left;
 	line-height: 1rem;
 	height: 1rem;
-	font-family: 'AppleSDGothicNeoR00', 'AppleSDGothicNeoM';
+	font-family: 'AppleSDGothicNeoR', 'AppleSDGothicNeoM';
 `;
 
 export const LinkBox = styled.div`

@@ -24,6 +24,10 @@ export const Input = styled.input`
 	border: none;
 	border-radius: 5px;
 	box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
-	font-family: 'ChosunCentennial';
+	font-family: 'AppleSDGothicNeoR', 'AppleSDGothicNeoM';
 	text-align: center;
+
+	&:focus {
+		outline: 1px solid var(--point);
+	}
 `;

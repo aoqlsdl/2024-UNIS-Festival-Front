@@ -14,7 +14,8 @@ export const Event = styled.p`
 `;
 
 export const Content = styled.div`
-	width: 21.56rem;
+	width: 93%;
+	min-width: 21.56rem;
 	display: flex;
 	flex-direction: column;
 	justify-content: left;
@@ -71,7 +72,7 @@ export const Input = styled.input`
 	border: 1px solid #dedede;
 	border-radius: 8px;
 	font-size: 0.75rem;
-	font-family: 'ChosunCentennial';
+	font-family: 'AppleSDGothicR';
 	box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
 
 	&.rating {
@@ -86,6 +87,10 @@ export const Input = styled.input`
 		border-radius: 0;
 		box-shadow: none;
 	}
+
+	&:focus {
+		outline: 1px solid var(--point);
+	}
 `;
 
 export const Textarea = styled.textarea`
@@ -95,8 +100,12 @@ export const Textarea = styled.textarea`
 	border: 1px solid #dedede;
 	border-radius: 8px;
 	font-size: 0.75rem;
-	font-family: 'ChosunCentennial';
+	font-family: 'AppleSDGothicR';
 	box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
+
+	&:focus {
+		outline: 1px solid var(--point);
+	}
 `;
 
 export const Submit = styled.button`
