@@ -17,6 +17,10 @@ export const ReviewBox = styled.div`
 	margin: 0 auto;
 `;
 
+export const StarBox = styled.div`
+	margin-top: 1.13rem;
+	margin-bottom: 0.44rem;
+`;
 export const Contents = styled.div`
 	width: 18.5rem;
 	height: fit-content;
@@ -33,10 +37,14 @@ export const Contents = styled.div`
 `;
 
 export const ReviewTitle = styled.p`
+	width: 12rem;
 	margin: 0.44rem 0 0 0;
 	font-size: 1.25rem;
 	line-height: 1.13rem;
 	text-align: left;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 `;
 
 export const ReviewDesc = styled.p`
