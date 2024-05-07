@@ -7,6 +7,15 @@ export const Container = styled.div`
 	box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
 	border-radius: 10px;
 	margin: 0 auto;
+
+	&::-webkit-scrollbar {
+		width: 0.25rem;
+	}
+	&::-webkit-scrollbar-thumb {
+		border-radius: 10px;
+		background-color: #a6a6a6;
+		opacity: 0.7;
+	}
 `;
 
 export const ReviewBox = styled.div`
