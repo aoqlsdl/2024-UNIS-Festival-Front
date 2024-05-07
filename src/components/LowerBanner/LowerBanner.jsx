@@ -4,10 +4,10 @@ import * as s from './LowerBannerStyles';
 const LowerBanner = () => {
 	const [currentIndex, setCurrentIndex] = useState(0);
 	const imageSources = [
-		'/public/imgs/lowBanner1.webp',
-		'/public/imgs/lowBanner2.webp',
-		'/public/imgs/lowBanner3.webp',
-		'/public/imgs/lowBanner4.webp',
+		'/imgs/lowBanner1.webp',
+		'/imgs/lowBanner2.webp',
+		'/imgs/lowBanner3.webp',
+		'/imgs/lowBanner4.webp',
 	];
 
 	useEffect(() => {
