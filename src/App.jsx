@@ -4,6 +4,7 @@ import Routes from './pages/routes';
 function App() {
 	return (
 		<BrowserRouter>
+			<RouteChangeTracker />
 			<Routes />
 		</BrowserRouter>
 	);
