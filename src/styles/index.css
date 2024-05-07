@@ -7,7 +7,7 @@
 }
 
 body {
-	font-family: ChosunCentennial, sans-serif;
+	font-family: 'ChosunCentennial', 'AppleSDGothicNeoM', sans-serif;
 	line-height: 1.5;
 	font-weight: 400;
 	font-size: 16px;
@@ -17,4 +17,8 @@ body {
 	min-height: 100vh;
 	background-color: #fff;
 	margin: 0;
+}
+
+* {
+	font-family: 'ChosunCentennial', 'AppleSDGothicNeoM', sans-serif;
 }

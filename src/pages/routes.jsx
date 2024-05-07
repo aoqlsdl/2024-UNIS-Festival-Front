@@ -8,10 +8,17 @@ import ReviewPage from './ReviewPage/ReviewPage';
 import OrderListPage from './OrderListPage/OrderListPage';
 import ProtectedLayout from './ProtectedLayout';
 import AuthPage from './AuthPage/AuthPage';
+import useScrollToTop from '../hooks/useScrollToTop';
+import NotFoundPage from './NotFoundPage/NotFoundPage';
 
 const RoutesComponent = () => {
+	useScrollToTop();
 	return (
 		<Routes>
+			{/* not found */}
+			<Route path="*" element={<NotFoundPage />} />
+
+			{/* 정상 경로 */}
 			<Route path="/" element={<Layout />}>
 				<Route index element={<MainPage />} />
 			</Route>

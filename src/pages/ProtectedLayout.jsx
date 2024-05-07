@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import * as s from './LayoutStyles';
 import AuthPage from './AuthPage/AuthPage';
+import menuInfo from '../mock/menu.json';
 
 const ProtectedLayout = () => {
 	const [isAuth, setIsAuth] = useState(false);
@@ -23,10 +24,17 @@ const ProtectedLayout = () => {
 
 	return (
 		<>
-			<s.Container>
+			<s.Container className="auth">
 				<h2>Auth Page</h2>
 				{isAuth ? (
 					<>
+						<s.InfoBox>
+							{menuInfo.map((m, idx) => (
+								<s.Info>
+									메뉴 {idx + 1} : {m.title} *{m.discount} <br />
+								</s.Info>
+							))}
+						</s.InfoBox>
 						<AuthPage />
 					</>
 				) : (
