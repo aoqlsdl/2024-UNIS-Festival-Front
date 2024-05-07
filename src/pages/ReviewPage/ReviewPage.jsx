@@ -207,7 +207,7 @@ const ReviewPage = () => {
 							/>
 						</s.InputBox>
 						<s.InputBox>
-							<s.Label>비밀번호</s.Label>
+							<s.Label>비밀번호 (숫자 4자리 입력)</s.Label>
 							<s.Input
 								value={formData.password}
 								onChange={handleChange}

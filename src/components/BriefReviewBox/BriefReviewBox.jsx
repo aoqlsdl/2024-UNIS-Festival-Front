@@ -16,17 +16,21 @@ const BriefReviewBox = () => {
 		<>
 			<s.Container>
 				<s.ReviewBox>
-					{reviews.map(review => (
-						<s.Contents key={review.reviewId}>
-							<s.Review>
-								<s.ReviewTitle>{review.title}</s.ReviewTitle>
-								<s.ReviewDesc>{review.body}</s.ReviewDesc>
-							</s.Review>
-							<s.StarBox>
-								<StarsDisplay rating={review.rating} />
-							</s.StarBox>
-						</s.Contents>
-					))}
+					{reviews.length > 0 ? (
+						reviews.map(review => (
+							<s.Contents key={review.reviewId}>
+								<s.Review>
+									<s.ReviewTitle>{review.title}</s.ReviewTitle>
+									<s.ReviewDesc>{review.body}</s.ReviewDesc>
+								</s.Review>
+								<s.StarBox>
+									<StarsDisplay rating={review.rating} />
+								</s.StarBox>
+							</s.Contents>
+						))
+					) : (
+						<s.EmptyMessage>리뷰를 등록해주세요</s.EmptyMessage>
+					)}
 				</s.ReviewBox>
 			</s.Container>
 		</>

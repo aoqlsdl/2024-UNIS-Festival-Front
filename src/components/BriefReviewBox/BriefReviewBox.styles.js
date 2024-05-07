@@ -85,3 +85,10 @@ export const ReviewImg = styled.img`
 	width: 6.56rem;
 	height: 6.56rem;
 `;
+
+export const EmptyMessage = styled.p`
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	margin: 4.5rem auto 0;
+`;
