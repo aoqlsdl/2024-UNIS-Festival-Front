@@ -51,7 +51,7 @@ export const CharCount = styled.span`
 	position: absolute;
 	right: 0;
 	bottom: -0.38rem;
-	font-family: 'AppleSDGothic';
+	font-family: 'AppleSDGothicNeoM';
 `;
 
 export const StarBox = styled.div`
@@ -118,7 +118,7 @@ export const File = styled.label`
 	border: 1px solid #a6a6a6;
 	border-radius: 5px;
 	font-size: 0.75rem;
-	font-family: 'AppleSDGothic';
+	font-family: 'AppleSDGothicNeoM';
 	color: #a6a6a6;
 	display: flex;
 	justify-content: space-evenly;
@@ -140,7 +140,7 @@ export const FileName = styled.span`
 	margin-left: 0.94rem;
 	color: #989898;
 	font-size: 0.69rem;
-	font-family: 'AppleSDGothic';
+	font-family: 'AppleSDGothicNeoM';
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
