@@ -44,7 +44,7 @@ export const Contents = styled.div`
 `;
 
 export const ReviewTitle = styled.p`
-	width: 10rem;
+	width: 11rem;
 	height: 1.56rem;
 	margin: 0.75rem 0 0 0;
 	font-size: 1.25rem;
@@ -57,15 +57,13 @@ export const ReviewTitle = styled.p`
 
 export const ReviewDesc = styled.p`
 	width: 100%;
-	height: 1.19rem;
+	height: 2rem;
 	font-size: 1rem;
 	color: #a6a6a6;
 	text-align: left;
 	line-height: 1.13rem;
 	margin: 0 0 0.13rem 0;
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
+	word-wrap: break-word;
 `;
 
 export const Reviewer = styled.span`
