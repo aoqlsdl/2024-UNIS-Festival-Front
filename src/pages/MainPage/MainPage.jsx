@@ -34,17 +34,17 @@ const MainPage = () => {
                 <table style={{ width: '100vw' }}>
                     <tr>
                         <td>
-                            <a href="/scr/pages/OrderListPage.jsx">
-                                <MainButton title={'예약 주문'} desc={'기다리지 말고 픽업하세요!'} imageSrc="/public/imgs/reservation.webp" />
+                            <a href="">
+                                <MainButton title={'예약 주문'} desc={'기다리지 말고 픽업하세요!'} imageSrc="/public/imgs/reservation.webp"width={200} height={160}/>
                             </a>
                         </td>
                         <td>
-                            <a href="https://m.search.naver.com/search.naver?sm=mtp_hty.top&where=m&query=%EB%A6%AC%EB%85%B8">
-                                <MainButton title={'이벤트'} desc={'참여만 해도 반값할인'} imageSrc="/public/imgs/event.webp" />
+                            <a href="">
+                                <MainButton title={'이벤트'} desc={'참여만 해도 반값할인'} imageSrc="/public/imgs/event.webp" width={200} height={160}/>
                             </a>
                         </td>
                         <td>
-                            <MainButton title={'오시는 길'} desc={'부스 위치 안내도'} imageSrc="/public/imgs/position.webp" onClick={() => openPopup('https://m.search.naver.com/search.naver?sm=mtp_hty.top&where=m&query=%EB%A6%AC%EB%85%B8')} />
+                            <MainButton title={'오시는 길'} desc={'부스 위치 안내도'} imageSrc="/public/imgs/position.webp" width={200} height={160} onClick={() => openPopup('')} />
                         </td>
                     </tr>
                 </table>
