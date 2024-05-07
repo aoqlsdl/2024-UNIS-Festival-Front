@@ -57,13 +57,18 @@ export const ReviewTitle = styled.p`
 
 export const ReviewDesc = styled.p`
 	width: 100%;
-	height: 2rem;
+	height: auto;
 	font-size: 1rem;
 	color: #a6a6a6;
 	text-align: left;
 	line-height: 1.13rem;
 	margin: 0 0 0.13rem 0;
-	word-wrap: break-word;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2; // 표시할 줄 수
+	width: 11rem;
+	overflow: hidden;
+	text-overflow: ellipsis;
 `;
 
 export const Reviewer = styled.span`

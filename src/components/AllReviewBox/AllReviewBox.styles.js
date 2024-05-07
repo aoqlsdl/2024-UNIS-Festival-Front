@@ -63,6 +63,12 @@ export const ReviewTitle = styled.p`
 `;
 
 export const ReviewDesc = styled.p`
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2; // 표시할 줄 수
+	width: 12rem;
+	overflow: hidden;
+	text-overflow: ellipsis;
 	width: 12rem;
 	height: 1.19rem;
 	font-size: 1rem;
@@ -70,10 +76,11 @@ export const ReviewDesc = styled.p`
 	text-align: left;
 	line-height: 1.13rem;
 	margin: 0 0 1.25rem 0;
-	word-wrap: break-word;
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
+	height: auto;
+	// word-wrap: break-word;
+	// white-space: nowrap;
+	// overflow: hidden;
+	// text-overflow: ellipsis;
 `;
 
 export const Reviewer = styled.span`
