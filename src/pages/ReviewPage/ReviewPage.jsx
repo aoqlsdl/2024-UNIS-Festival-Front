@@ -177,7 +177,11 @@ const ReviewPage = () => {
 							<s.FileBox>
 								<s.File className="input-file-button" htmlFor="input-file">
 									<img src="/icons/upload.svg" />
-									<span>파일 업로드</span>
+									{fileNames.length > 0 ? (
+										<span>선택 취소</span>
+									) : (
+										<span>파일 선택</span>
+									)}
 								</s.File>
 								<s.FileName>
 									{fileNames.length > 0 && fileNames.join(', ')}
