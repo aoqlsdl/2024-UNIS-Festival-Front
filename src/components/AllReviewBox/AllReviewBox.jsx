@@ -28,7 +28,11 @@ const AllReviewBox = () => {
 									<s.ReviewDesc>{review.body}</s.ReviewDesc>
 									<s.Reviewer>닉네임: {review.nickname}</s.Reviewer>
 								</s.Review>
-								<s.ReviewImg src={review.imageLinks[0]} />
+								{review.imageLinks > 0 ? (
+									<s.ReviewImg src={review.imageLinks[0]} />
+								) : (
+									<s.ReviewImg src="/imgs/thumbnail.webp" />
+								)}
 							</s.Contents>
 						))
 					) : (
