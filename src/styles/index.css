@@ -20,5 +20,14 @@ body {
 }
 
 footer {
-	font-family: 'AppleSDGothicNeoM', sans-serif;
+	font-family: 'AppleSDGothicNeoR', 'AppleSDGothicNeoM';
+}
+
+input {
+	font-family: 'AppleSDGothicNeoR', 'AppleSDGothicNeoM';
+}
+
+input:focus,
+textarea:focus {
+	outline: 1px solid var(--point);
 }

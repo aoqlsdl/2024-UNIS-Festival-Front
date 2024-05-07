@@ -37,6 +37,7 @@ export const Input = styled.input`
 	height: 3rem;
 	border: 1px solid #dedede;
 	border-radius: 8px;
+	font-family: 'AppleSDGothicNeoR', 'AppleSDGothicNeoM';
 
 	&:focus {
 		outline: none;

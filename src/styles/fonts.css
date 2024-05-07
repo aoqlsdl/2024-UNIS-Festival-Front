@@ -5,6 +5,12 @@
 	src: url('/fonts/AppleSDGothicNeoM.ttf') format('truetype');
 }
 
+@font-face {
+	font-display: swap;
+	font-family: 'AppleSDGothicNeoR';
+	src: url('/fonts/AppleSDGothicNeoR.ttf') format('truetype');
+}
+
 /* 조선100년체 */
 @font-face {
 	font-display: swap;
