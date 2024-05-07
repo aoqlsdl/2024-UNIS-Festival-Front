@@ -37,7 +37,6 @@ const MainPage = () => {
 							<MainButton
 								title={'예약 주문'}
 								desc={'기다리지 말고 픽업하세요!'}
-								imageSrc="/public/imgs/reservation.webp"
 							/>
 						</a>
 					</td>
@@ -45,7 +44,7 @@ const MainPage = () => {
 						<a href="https://m.search.naver.com/search.naver?sm=mtp_hty.top&where=m&query=%EB%A6%AC%EB%85%B8">
 							<MainButton
 								title={'이벤트'}
-								desc={'참여만 해도 반값할인'}
+								desc={'참여만 해도 반값 할인'}
 								imageSrc="/public/imgs/event.webp"
 							/>
 						</a>
@@ -53,7 +52,7 @@ const MainPage = () => {
 					<td>
 						<MainButton
 							title={'오시는 길'}
-							desc={'부스 위치 안내도'}
+							desc={'부스 위치 \n안내도'}
 							imageSrc="/public/imgs/position.webp"
 							onClick={() =>
 								openPopup(
