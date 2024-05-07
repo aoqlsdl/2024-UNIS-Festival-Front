@@ -21,6 +21,7 @@ export const StarBox = styled.div`
 	margin-top: 1.13rem;
 	margin-bottom: 0.44rem;
 `;
+
 export const Contents = styled.div`
 	width: 18.5rem;
 	height: fit-content;

@@ -17,31 +17,39 @@ export const ReviewBox = styled.div`
 	margin: 0 auto;
 `;
 
+export const StarBox = styled.div`
+	margin: 0.75rem 0;
+`;
+
 export const Contents = styled.div`
 	width: 18.5rem;
 	height: fit-content;
 	margin: 0 auto;
 	display: flex;
 	flex-direction: row;
-	align-items: center;
 	justify-content: space-between;
 `;
 
 export const ReviewTitle = styled.p`
-	margin: 0.44rem 0 0 0;
+	width: 10rem;
+	height: 1.56rem;
+	margin: 0.75rem 0 0 0;
 	font-size: 1.25rem;
 	line-height: 1.13rem;
 	text-align: left;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 `;
 
 export const ReviewDesc = styled.p`
-	width: calc(100% - 2rem);
+	width: 100%;
 	height: 1.19rem;
 	font-size: 1rem;
 	color: #a6a6a6;
 	text-align: left;
 	line-height: 1.13rem;
-	margin: 0 0 1.25rem 0;
+	margin: 0 0 0.13rem 0;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;

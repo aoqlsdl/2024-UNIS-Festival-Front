@@ -23,9 +23,6 @@ const MainPage = () => {
 	const goToOrder = () => {
 		navigate('/orders');
 	};
-	const goToEvent = () => {
-		navigate('/');
-	};
 
 	return (
 		<>
@@ -48,7 +45,9 @@ const MainPage = () => {
 							<MainButton
 								title={'이벤트'}
 								desc={'참여만 해도 반값 할인'}
-								onClick={goToEvent}
+								onClick={() =>
+									window.open('https://forms.gle/kTNJw7QeryxZ48Uc9')
+								}
 							/>
 							<MainButton
 								title={'오시는 길'}
