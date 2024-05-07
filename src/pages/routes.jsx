@@ -41,7 +41,7 @@ const RoutesComponent = () => {
 				</Route>
 			)} */}
 			<Route path="/">
-				<Route index element={<BeforeOpen />} />
+				<Route index element={<MainPage />} />
 			</Route>
 			<Route path="/orders" element={<NavbarLayout title="예약 주문" />}>
 				<Route index element={<OrderListPage />} />
