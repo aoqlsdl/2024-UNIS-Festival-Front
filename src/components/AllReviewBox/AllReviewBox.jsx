@@ -17,19 +17,23 @@ const AllReviewBox = () => {
 		<>
 			<s.Container>
 				<s.ReviewBox>
-					{reviews.map(review => (
-						<s.Contents key={review.reviewId}>
-							<s.Review>
-								<s.StarBox>
-									<StarsDisplay rating={review.rating} />
-								</s.StarBox>
-								<s.ReviewTitle>{review.title}</s.ReviewTitle>
-								<s.ReviewDesc>{review.body}</s.ReviewDesc>
-								<s.Reviewer>닉네임: {review.nickname}</s.Reviewer>
-							</s.Review>
-							<s.ReviewImg src={review.imageLinks[0]} />
-						</s.Contents>
-					))}
+					{reviews.length > 0 ? (
+						reviews.map(review => (
+							<s.Contents key={review.reviewId}>
+								<s.Review>
+									<s.StarBox>
+										<StarsDisplay rating={review.rating} />
+									</s.StarBox>
+									<s.ReviewTitle>{review.title}</s.ReviewTitle>
+									<s.ReviewDesc>{review.body}</s.ReviewDesc>
+									<s.Reviewer>닉네임: {review.nickname}</s.Reviewer>
+								</s.Review>
+								<s.ReviewImg src={review.imageLinks[0]} />
+							</s.Contents>
+						))
+					) : (
+						<s.EmptyMessage>리뷰를 등록해주세요</s.EmptyMessage>
+					)}
 				</s.ReviewBox>
 			</s.Container>
 		</>
