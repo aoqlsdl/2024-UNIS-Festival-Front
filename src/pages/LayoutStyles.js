@@ -6,8 +6,11 @@ export const Container = styled.div`
 	min-width: 23.438rem;
 	max-width: 49.125rem;
 	text-align: center;
-	font-family: 'AppleSDGothic';
 	margin-top: 2rem;
+
+	&.auth {
+		font-family: 'AppleSDGothicNeoM';
+	}
 `;
 export const Wrapper = styled.div``;
 export const InputWrapper = styled.div`
@@ -47,6 +50,7 @@ export const InfoBox = styled.div`
 	padding: 1rem;
 	margin: 0 0 1rem 1rem;
 	background-color: var(--light-gray);
+	font-family: 'AppleSDGothicNeoM', sans-serif;
 `;
 
 export const Info = styled.li`
