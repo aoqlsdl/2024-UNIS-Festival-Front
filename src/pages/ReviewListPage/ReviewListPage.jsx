@@ -14,7 +14,7 @@ const ReviewListPage = () => {
 			<Helmet>
 				<title>벗들의 생생한 후기</title>
 			</Helmet>
-			;
+
 			<s.Container>
 				<s.Guide>
 					<s.Title>리뷰 가이드</s.Title>

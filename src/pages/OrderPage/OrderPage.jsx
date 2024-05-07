@@ -196,7 +196,10 @@ const OrderPage = () => {
 							<s.InfoTitle>
 								예약자명{showNameError && <span>이름을 입력해주세요.</span>}
 							</s.InfoTitle>
-							<s.InfoInput onChange={e => handleCustomerNameChange(e)} />
+							<s.InfoInput
+								maxLength={10}
+								onChange={e => handleCustomerNameChange(e)}
+							/>
 						</s.InfoBox>
 						<s.InfoBox>
 							<s.InfoTitle>

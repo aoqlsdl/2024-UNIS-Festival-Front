@@ -2,17 +2,26 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
 	width: 100vw;
-	// height: 100vh;
+	height: fit-content;
 	min-width: 23.438rem;
 	max-width: 49.125rem;
 	text-align: center;
-	margin-top: 2rem;
+	margin: 0 auto;
+
+	&.nav {
+		margin-top: 2rem;
+	}
 
 	&.auth {
 		font-family: 'AppleSDGothicNeoM';
 	}
 `;
-export const Wrapper = styled.div``;
+export const Wrapper = styled.div`
+	margin-top: 2.81rem;
+	&.nav {
+		margin-top: 7rem;
+	}
+`;
 export const InputWrapper = styled.div`
 	width: 20rem;
 	height: 100vh;

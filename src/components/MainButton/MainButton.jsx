@@ -1,11 +1,14 @@
 import * as s from './MainButton.styles';
 
-const MainButton = ({ title, desc, imageSrc, onClick, width, height }) => {
-    return (
-        <s.Wrapper onClick={onClick}>
-            <img src={imageSrc} alt="이미지" width={width} height={height} />
-        </s.Wrapper>
-    );
+const MainButton = ({ title, desc, onClick }) => {
+	return (
+		<>
+			<s.Wrapper onClick={onClick}>
+				<s.Title>{title}</s.Title>
+				<s.Desc>{desc}</s.Desc>
+			</s.Wrapper>
+		</>
+	);
 };
 
 export default MainButton;
