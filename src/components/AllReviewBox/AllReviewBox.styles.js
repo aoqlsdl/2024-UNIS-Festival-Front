@@ -63,13 +63,14 @@ export const ReviewTitle = styled.p`
 `;
 
 export const ReviewDesc = styled.p`
-	width: calc(100% - 2rem);
+	width: 12rem;
 	height: 1.19rem;
 	font-size: 1rem;
 	color: #a6a6a6;
 	text-align: left;
 	line-height: 1.13rem;
 	margin: 0 0 1.25rem 0;
+	word-wrap: break-word;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
