@@ -48,8 +48,6 @@ const ReviewPage = () => {
 				...prevNames,
 				...fileList.map(file => file.name),
 			]);
-
-			console.log(fileNames);
 		} else if (name === 'rating') {
 			const floatValue = parseFloat(value);
 			if (!isNaN(floatValue)) {
@@ -137,9 +135,9 @@ const ReviewPage = () => {
 								value={formData.title}
 								onChange={handleChange}
 								name="title"
-								maxLength={50}
+								maxLength={10}
 							/>
-							<s.CharCount>{titleCharCount}/50</s.CharCount>
+							<s.CharCount>{titleCharCount}/10</s.CharCount>
 						</s.InputBox>
 						<s.InputBox>
 							<s.Label>별점</s.Label>
@@ -214,7 +212,11 @@ const ReviewPage = () => {
 								value={formData.password}
 								onChange={handleChange}
 								name="password"
-								type="password"
+								type="number" // 타입을 숫자로 설정
+								maxLength={4} // 최대 길이를 4자리로 제한
+								minLength={4} // 최소 길이를 4자리로 제한
+								pattern="\d{4}" // 정규 표현식을 사용하여 숫자 4자리만 입력 허용
+								onInput={e => (e.target.value = e.target.value.slice(0, 4))} // 입력이 4자리를 초과하지 않도록 자르기
 							/>
 						</s.InputBox>
 						<s.Submit type="button" onClick={() => setIsModalOpen(true)}>
