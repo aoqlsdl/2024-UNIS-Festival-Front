@@ -64,7 +64,7 @@ const OrderListPage = () => {
 							{reservations.map((r, index) => (
 								<s.Reservation key={index}>
 									<s.Date>
-										{r.date}일 {useMealTime(r.time)}
+										{r.date + 7}일 {useMealTime(r.time)}
 									</s.Date>
 									<s.Customer>{useHideCustomerName(r.customerName)}</s.Customer>
 								</s.Reservation>
