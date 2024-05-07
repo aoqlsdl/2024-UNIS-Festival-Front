@@ -16,6 +16,10 @@ export const Container = styled.div`
 		background-color: #a6a6a6;
 		opacity: 0.7;
 	}
+
+	&::-webkit-scrollbar-track {
+		width: 4px;
+	}
 `;
 
 export const ReviewBox = styled.div`
