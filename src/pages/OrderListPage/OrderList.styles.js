@@ -63,7 +63,8 @@ export const Title = styled.div`
 
 export const Order = styled.button`
 	-webkit-appearance = none;
-	width: 21.88rem;
+	width: 93%;
+	min-width: 21.88rem;
 	height: 2.5rem;
 	display: flex;
 	justify-content: center;
@@ -103,6 +104,9 @@ export const Reservations = styled.div`
 		border-radius: 10px;
 		background-color: #a6a6a6;
 		opacity: 0.7;
+	}
+	&::-webkit-scrollbar-track {
+		width: 4px;
 	}
 `;
 
