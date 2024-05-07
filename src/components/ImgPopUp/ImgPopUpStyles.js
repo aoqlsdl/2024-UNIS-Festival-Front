@@ -15,8 +15,6 @@ export const Background = styled.div`
 
 export const Img = styled.img`
 	width: 20rem;
-	min-width: 20rem;
-	max-width: 49.125rem;
-	height: fit-content;
+	height: 20rem;
 	box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5);
 `;
