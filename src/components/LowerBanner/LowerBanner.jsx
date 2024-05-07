@@ -12,10 +12,10 @@ const Container = styled.div`
 const LowerBanner = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const imageSources = [
-        '/dist/imgs/lowBanner1.png',
-        '/dist/imgs/lowBanner2.png',
-		'/dist/imgs/lowBanner3.png',
-		'/dist/imgs/lowBanner4.png'
+        '/public/imgs/lowBanner1.webp',
+        '/public/imgs/lowBanner2.webp',
+		'/public/imgs/lowBanner3.webp',
+		'/public/imgs/lowBanner4.webp'
     ];
 
     useEffect(() => {
