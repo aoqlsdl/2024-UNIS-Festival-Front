@@ -31,7 +31,7 @@ const RoutesComponent = () => {
 			<Route path="*" element={<NotFoundPage />} />
 
 			{/* 정상 경로 */}
-			{/* {isBeforeOpen ? (
+			{isBeforeOpen ? (
 				<Route path="/">
 					<Route index element={<BeforeOpen />} />
 				</Route>
@@ -39,11 +39,7 @@ const RoutesComponent = () => {
 				<Route path="/" element={<Layout />}>
 					<Route index element={<MainPage />} />
 				</Route>
-			)} */}
-
-			<Route path="/" element={<Layout />}>
-				<Route index element={<MainPage />} />
-			</Route>
+			)}
 
 			<Route path="/orders" element={<NavbarLayout title="예약 주문" />}>
 				<Route index element={<OrderListPage />} />
