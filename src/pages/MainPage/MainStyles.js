@@ -6,7 +6,7 @@ export const Contents = styled.div`
 	justify-content: space-between;
 	margin: 0 auto;
 	width: calc(100vw - 0.94rem);
-	min-width: 23.438rem;
+	min-width: 10.438rem;
 	max-width: 49.125rem;
 	height: fit-content;
 
