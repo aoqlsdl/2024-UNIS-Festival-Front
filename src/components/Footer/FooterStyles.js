@@ -5,8 +5,9 @@ export const FooterContainer = styled.footer`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	width: 100%;
+	width: 21.56rem;
 	font-family: 'AppleSDGothicNeoM';
+	margin: 0 auto;
 `;
 
 export const Top = styled.div`
