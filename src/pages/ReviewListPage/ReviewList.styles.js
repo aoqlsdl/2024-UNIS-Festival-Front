@@ -1,13 +1,12 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-	width: 100vw;
-	min-width: 23.438rem;
-	max-width: 49.125rem;
+	width: 21.56rem;
+	margin: 0 auto;
 `;
 
 export const Guide = styled.div`
-	width: 100%;
+	width: 21.56rem;
 	height: 14.06rem;
 	position: relative;
 	background-image: url('/imgs/order_info_bg.webp');
@@ -18,6 +17,7 @@ export const Guide = styled.div`
 `;
 
 export const GuideContent = styled.div`
+	width: 21.56rem;
 	position: relative;
 	height: 100%;
 `;
@@ -57,7 +57,7 @@ export const Gifts = styled.img`
 `;
 
 export const Title = styled.p`
-	width: 21.56rem;
+	width: 90%;
 	text-align: left;
 	font-size: 1.25rem;
 	margin: 0 auto 1.25rem;
@@ -65,9 +65,9 @@ export const Title = styled.p`
 
 export const Button = styled.button`
 	-webkit-appearance: none;
-	width: 90%;
-	min-width: 21.56rem;
-	max-width: 49.125rem;
+	width: 21.56rem;
+	// min-width: 21.56rem;
+	// max-width: 49.125rem;
 	height: 2.5rem;
 	margin: 0 auto 2.13rem;
 	border: none;

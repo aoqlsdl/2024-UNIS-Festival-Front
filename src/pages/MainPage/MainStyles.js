@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-	display: inline-block;
+	// display: inline-block;
 	flex-direction: column;
 `;
 export const BannerWrapper = styled.div`

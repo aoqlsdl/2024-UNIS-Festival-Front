@@ -9,8 +9,8 @@ export const Container = styled.div`
 `;
 
 export const Content = styled.div`
-	width: calc(100vw - 1.88rem);
-	margin: 1.13rem auto 0;
+	width: 21.56rem;
+	margin: 0 auto;
 
 	&.pickup {
 		margin: 2.06rem auto 0;
@@ -19,7 +19,7 @@ export const Content = styled.div`
 
 export const Manual = styled.div`
 	text-align: left;
-	width: 100vw;
+	width: 100%;
 	min-width: 23.438rem;
 	max-width: 49.125rem;
 	height: 17.94rem;

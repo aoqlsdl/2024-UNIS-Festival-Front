@@ -8,16 +8,16 @@ export const Container = styled.div`
 	text-align: center;
 	margin: 0 auto;
 
-	&.nav {
-		margin-top: 2rem;
-	}
+	// &.nav {
+	// 	margin-top: 2rem;
+	// }
 
 	&.auth {
 		font-family: 'AppleSDGothicNeoM';
 	}
 `;
 export const Wrapper = styled.div`
-	margin-top: 2.81rem;
+	// margin-top: 2.81rem;
 	&.nav {
 		margin-top: 7rem;
 	}

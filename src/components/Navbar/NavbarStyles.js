@@ -4,24 +4,24 @@ export const Wrapper = styled.nav`
 	width: 100vw;
 	min-width: 23.438rem;
 	max-width: 49.125rem;
-	height: 5.88rem;
-	// margin-top: 2.88rem;
+	height: 3.88rem;
 	display: flex;
 	font-size: 1.25rem;
 	align-items: center;
 	background-color: #fff;
 	position: fixed;
 	top: 0;
+	margin: 0 auto;
 	z-index: 100;
 `;
 
 export const Content = styled.div`
-	width: calc(100vw - 1.88rem);
+	width: 21.56rem;
 	height: 3.88rem;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	margin: 1.88rem auto 0;
+	margin: 0 auto;
 	border-bottom: 1px solid #dedede;
 `;
 
