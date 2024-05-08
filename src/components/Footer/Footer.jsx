@@ -26,9 +26,8 @@ const Footer = () => {
 				</s.Top>
 				<s.Down>
 					<s.Copyright>
-						COPYRIGHT ⓒ 이화여자대학교 중앙실전창업학회 (@unis_ewha) UNIS ALL
-						<br />
-						RIGHTS RESERVED
+						COPYRIGHT ⓒ 이화여자대학교 중앙실전창업학회 (@unis_ewha) UNIS <br />
+						ALL RIGHTS RESERVED
 					</s.Copyright>
 				</s.Down>
 			</s.FooterContainer>
